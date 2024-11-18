@@ -12,7 +12,11 @@ export const login = async (email, password) => {
 };
 
 export const register = async registerData => {
-  const { data } = await axios.post('api/users/register', registerData);
+  console.log(`dnkdhjkdfhjkdfhj ${registerData}`)
+  const { data } = 
+  await axios.post('api/users/register', registerData);
+
+
   localStorage.setItem('user', JSON.stringify(data));
   return data;
 };

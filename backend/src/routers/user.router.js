@@ -27,7 +27,8 @@ router.post(
 router.post(
   '/register',
   handler(async (req, res) => {
-    const { name, email, password, address } = req.body;
+    const { firstName,lastName,phone, email, password, address } = req.body;
+    console.log("hsohoihnojhuh")
 
     const user = await UserModel.findOne({ email });
 
@@ -40,11 +41,12 @@ router.post(
       password,
       PASSWORD_HASH_SALT_ROUNDS
     );
-
+    const name=`${firstName} ${lastName}`
     const newUser = {
       name,
       email: email.toLowerCase(),
       password: hashedPassword,
+      phone,
       address,
     };
 
